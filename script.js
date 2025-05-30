@@ -94,7 +94,6 @@ async function fetchWeatherData(city, days) {
         }),
         temperature: day.tmax,
         weather: getWeatherIcon(day.weather),
-        humidity: day.rh2m,
         latitude: cityInfo.latitude.toFixed(4),
         longitude: cityInfo.longitude.toFixed(4),
         rain: day.rr10 || 0,
@@ -144,10 +143,7 @@ function displayWeatherData(data, selectedOptions) {
                                 <div class="info-value">${forecast.temperature}°C</div>
                                 <div class="info-label">Température</div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-value">${forecast.humidity}%</div>
-                                <div class="info-label">Humidité</div>
-                            </div>
+
                 `;
 
         // Ajout des informations optionnelles
