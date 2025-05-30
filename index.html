@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Weather V2</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+    
+    <div class="container">
+        <header>
+            <h1>Instant Weather V2</h1>
+            <p class="subtitle">Prévisions météorologiques détaillées pour votre commune</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-container">
+                <form id="weatherForm">
+                    <div class="form-group">
+                        <label for="city">Commune :</label>
+                        <input type="text" id="city" name="city" placeholder="Ex: Paris, Lyon, Marseille..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="days">Nombre de jours (1 à 7) :</label>
+                        <div class="slider-container">
+                            <input type="range" id="days" name="days" min="1" max="7" value="3" class="slider">
+                            <div class="slider-value" id="daysValue">3 jours</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Informations supplémentaires :</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="latitude" name="options" value="latitude">
+                                <label for="latitude">Latitude</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="longitude" name="options" value="longitude">
+                                <label for="longitude">Longitude</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="rain" name="options" value="rain">
+                                <label for="rain">Cumul de pluie</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="wind" name="options" value="wind">
+                                <label for="wind">Vent moyen</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="windDirection" name="options" value="windDirection">
+                                <label for="windDirection">Direction du vent</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Obtenir les prévisions</button>
+                </form>
+            </div>
+
+            <div class="weather-display" id="weatherDisplay">
+                <div class="loading" style="display: none;" id="loading">
+                    Chargement des prévisions...
+                </div>
+                <div id="weatherResults">
+                    <p style="text-align: center; color: var(--text-light); padding: 60px 20px;">
+                        Saisissez une commune et cliquez sur "Obtenir les prévisions" pour afficher les informations météorologiques.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
