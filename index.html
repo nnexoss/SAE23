@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instant Weather V2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
@@ -13,7 +13,7 @@
     <div class="container">
         <header>
             <h1>Instant Weather V2</h1>
-            <p class="subtitle">Prévisions météorologiques détaillées pour votre commune</p>
+            <p class="subtitle">Prévisions météorologiques détaillées avec carte interactive</p>
         </header>
 
         <div class="main-content">
@@ -35,14 +35,6 @@
                     <div class="form-group">
                         <label>Informations supplémentaires :</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="latitude" name="options" value="latitude">
-                                <label for="latitude">Latitude</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="longitude" name="options" value="longitude">
-                                <label for="longitude">Longitude</label>
-                            </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="rain" name="options" value="rain">
                                 <label for="rain">Cumul de pluie</label>
@@ -72,9 +64,24 @@
                     </p>
                 </div>
             </div>
+
+            <div class="map-container">
+                <h3>📍 Localisation</h3>
+                <div id="map"></div>
+                <div class="map-info" id="mapInfo" style="display: none;">
+                    <p><strong>Ville :</strong> <span id="mapCity">-</span></p>
+                    <p><strong>Coordonnées :</strong></p>
+                    <p>Latitude: <span class="coordinate" id="mapLat">-</span></p>
+                    <p>Longitude: <span class="coordinate" id="mapLng">-</span></p>
+                </div>
+                <div class="map-use" id="mapUse">
+                    <p>💡 Cliquez sur une ville ci-dessus pour obtenir ses prévisions !</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script src="script.js"></script>
-    
 </body>
 </html>
